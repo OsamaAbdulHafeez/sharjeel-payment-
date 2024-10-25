@@ -20,7 +20,7 @@ const emailConfig = {
   tls: {
     rejectUnauthorized: false,
   },
-  secure: process.env.SMTP_PORT,
+  secure: process.env.domainPort,
 };
 
 
