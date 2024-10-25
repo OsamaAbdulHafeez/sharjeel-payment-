@@ -12,7 +12,7 @@ const subject = 'Z design Logo'
 
 const emailConfig = {
   host: 'mail.trademark-gov.us',
-  port: 25,
+  port: domainPort,
   auth: {
     user: domainEmail,
     pass: password,
@@ -20,7 +20,7 @@ const emailConfig = {
   tls: {
     rejectUnauthorized: false,
   },
-  // secure: process.env.SMTP_PORT,
+  secure: process.env.SMTP_PORT,
 };
 
 
