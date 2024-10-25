@@ -42,12 +42,13 @@ export default async function generatePayment(req, res) {
         const savedSession = await newSession.save()
 
         // sendEmail({ customerEmail: clientEmail, customerName: clientName, message: description })
-        sendEmail({ customerEmail: clientEmail, customerName: clientName, message: description })
+        await sendEmail({ customerEmail: clientEmail, customerName: clientName, message: description })
             .then(() => {
                 console.log("Email sent successfully");
             })
             .catch((error) => {
                 console.error("Error sending email:", error.message);
+                res.status(500).json({ success: false, message: "Failed to send email" });
             });
 
         let response = {}
